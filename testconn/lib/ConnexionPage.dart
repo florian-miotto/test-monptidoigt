@@ -68,7 +68,7 @@ class ConnexionPage extends StatelessWidget {
                       // ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 20,),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Mot de passe',
@@ -81,6 +81,7 @@ class ConnexionPage extends StatelessWidget {
                       //   FontAwesomeIcons.lock,
                       //   color: Color.fromARGB(255, 160, 160, 160),
                       // ),
+                      
                     ),
                   ),
                   //bouton radio pour se souvenir de moi
@@ -129,9 +130,9 @@ class ConnexionPage extends StatelessWidget {
                     ],
                   ),
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'Se connecter',
@@ -146,12 +147,15 @@ class ConnexionPage extends StatelessWidget {
                       Container(
                         width: 60,
                         height: 60,
+                        
                         decoration: BoxDecoration(
+                          
                         color: const Color.fromARGB(255, 34, 87, 104),
                         shape: BoxShape.circle,                        ),
                         child: const Icon(
                           FontAwesomeIcons.arrowRight,
                           color: Colors.white,
+                          
                         ),
                       ),
 
@@ -172,7 +176,6 @@ class ConnexionPage extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                         ),
-                        //lien cliquable vers la page d'inscription InscriptionPage()
 
 
 
@@ -191,42 +194,4 @@ class ConnexionPage extends StatelessWidget {
   }
   
   void setState(Null Function() param0) {}
-}
-class GoogleBtn1 extends StatelessWidget {
-final Function() onPressed;
-  const GoogleBtn1({
-required this.onPressed,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        height: 54,
-        margin: const EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
-        ),
-        child: TextButton(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.network(
-                "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/crypto%2Fsearch%20(2).png?alt=media&token=24a918f7-3564-4290-b7e4-08ff54b3c94c",
-                width: 20,
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              const Text("Google",
-                  style: TextStyle(color: Colors.black, fontSize: 16)),
-            ],
-          ),
-          onPressed: onPressed,
-        ));
-  }
 }

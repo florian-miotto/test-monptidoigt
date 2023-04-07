@@ -46,7 +46,7 @@ class InscriptionPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Inscription',
+                    'S\'inscrire',
                     style: GoogleFonts.nunito(
                       color: const Color.fromARGB(255, 34, 87, 104),
                       fontSize: 36,
@@ -106,7 +106,7 @@ class InscriptionPage extends StatelessWidget {
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         'S\'inscrire',
@@ -139,7 +139,7 @@ class InscriptionPage extends StatelessWidget {
                          );
                                },
                       child: Text(
-                        "S'inscrire",
+                        "Se connecter",
                         style: GoogleFonts.nunito(
                           color: const Color.fromARGB(255, 34, 87, 104),
                           fontSize: 18,

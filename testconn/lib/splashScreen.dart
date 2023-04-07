@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => ConnexionPage()),
@@ -29,8 +29,7 @@ class WelcomePage extends StatelessWidget {
                   child: Image.asset('images/logo.png'),
                 ),
               ),
-              
-              
+                            
             ],
           ),
         ),
