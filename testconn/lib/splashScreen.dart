@@ -29,30 +29,8 @@ class WelcomePage extends StatelessWidget {
                   child: Image.asset('images/logo.png'),
                 ),
               ),
-              AnimFondu(
-                delay: 1500,
-                child: Container(
-                  height: 200,
-                  child: Image.asset('images/up.png'),
-                ),
-              ),
-              AnimFondu(
-                delay: 1800,
-                child: Container(
-                  height: 200,
-                  margin: const EdgeInsets.only(
-                    top: 20,
-                    bottom: 30,
-                  ),
-                  child: Text(
-                    'Mon ptit doigt',
-                    style: GoogleFonts.nunito(
-                      color: Colors.black,
-                      fontSize: 22,
-                    ),
-                  ),
-                ),
-              ),
+              
+              
             ],
           ),
         ),

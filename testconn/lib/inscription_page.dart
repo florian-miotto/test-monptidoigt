@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'inscription_page.dart';
-class ConnexionPage extends StatelessWidget {
+import 'ConnexionPage.dart';
+
+class InscriptionPage extends StatelessWidget {
 
   bool _rememberMe = false;
   @override
@@ -45,11 +46,35 @@ class ConnexionPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Connexion',
+                    'Inscription',
                     style: GoogleFonts.nunito(
                       color: const Color.fromARGB(255, 34, 87, 104),
                       fontSize: 36,
                       fontWeight: FontWeight.w900,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Prénom',
+                      labelStyle: GoogleFonts.nunito(
+                        color: const Color.fromARGB(195, 184, 184, 184),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Nom',
+                      labelStyle: GoogleFonts.nunito(
+                        color: const Color.fromARGB(195, 184, 184, 184),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -60,12 +85,8 @@ class ConnexionPage extends StatelessWidget {
                         color: const Color.fromARGB(195, 184, 184, 184),
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        
                       ),
-                      // prefixIcon: const Icon(
-                      //   FontAwesomeIcons.envelope,
-                      //   color: Color.fromARGB(255, 160, 160, 160),
-                      // ),
+                      
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -77,64 +98,18 @@ class ConnexionPage extends StatelessWidget {
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
-                      // prefixIcon: const Icon(
-                      //   FontAwesomeIcons.lock,
-                      //   color: Color.fromARGB(255, 160, 160, 160),
-                      // ),
+                      
                     ),
                   ),
-                  //bouton radio pour se souvenir de moi
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: _rememberMe,
-                        onChanged: (value) {
-                          setState(() {
-                            _rememberMe = value!;
-                          });
-                        },
-                      ),
-                      Text(
-                        'Se souvenir de moi',
-                        style: GoogleFonts.nunito(
-                          color: const Color.fromARGB(255, 34, 87, 104),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    'Se connecter avec',
-                    style: GoogleFonts.nunito(
-                      color: const Color.fromARGB(255, 34, 87, 104),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        FontAwesomeIcons.google,
-                        color: Color.fromARGB(255, 34, 87, 104),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(
-                        FontAwesomeIcons.facebook,
-                        color: Color.fromARGB(255, 34, 87, 104),
-                      ),
-                    ],
-                  ),
+                  
+                  
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Se connecter',
+                        'S\'inscrire',
                         style: GoogleFonts.nunito(
                           color: const Color.fromARGB(255, 34, 87, 104),
                           fontSize: 24,
@@ -154,15 +129,13 @@ class ConnexionPage extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-
                     ],
                   ),
-                  //text "s'inscrire" ->lien vers la page d'inscription
-                  GestureDetector(
+                   GestureDetector(
                      onTap: () {
                       Navigator.push(
                          context,
-                         MaterialPageRoute(builder: (context) => InscriptionPage()),
+                         MaterialPageRoute(builder: (context) => ConnexionPage()),
                          );
                                },
                       child: Text(
@@ -172,15 +145,13 @@ class ConnexionPage extends StatelessWidget {
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
                         ),
-                        //lien cliquable vers la page d'inscription InscriptionPage()
+                       
 
 
 
 
                       ),
                   ),
-                
-
                 ],
               ),
             ),
