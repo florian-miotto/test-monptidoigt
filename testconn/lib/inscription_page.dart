@@ -119,6 +119,7 @@ class InscriptionPage extends StatelessWidget {
                       ),
                       const SizedBox(width: 10),
                       Container(
+                        
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
@@ -134,8 +135,9 @@ class InscriptionPage extends StatelessWidget {
                    GestureDetector(
                      onTap: () {
                       Navigator.push(
+                        
                          context,
-                         MaterialPageRoute(builder: (context) => ConnexionPage()),
+                         MaterialPageRoute(builder: (context) =>   LoginPage()),
                          );
                                },
                       child: Text(
@@ -144,12 +146,7 @@ class InscriptionPage extends StatelessWidget {
                           color: const Color.fromARGB(255, 34, 87, 104),
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                        ),
-                       
-
-
-
-
+                        ),                  
                       ),
                   ),
                 ],
