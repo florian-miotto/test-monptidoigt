@@ -2,9 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'inscription_page.dart';
-class ConnexionPage extends StatelessWidget {
+import 'connex_page.dart';
+import 'dart:convert';
+
+class LoginPage extends StatefulWidget {
+  @override
+  // ignore: library_private_types_in_public_api
+  _LoginPageState createState() => _LoginPageState();
+}
+
+
+class _LoginPageState extends State<LoginPage> {
+ final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+  bool _isLoading = false;
+
 
   bool _rememberMe = false;
+  
+  get http => null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +59,7 @@ class ConnexionPage extends StatelessWidget {
                 ),
               ),
               child: Column(
+                
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -53,7 +71,8 @@ class ConnexionPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextField(
+                  
+                  TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Adresse mail',
                       labelStyle: GoogleFonts.nunito(
@@ -67,9 +86,18 @@ class ConnexionPage extends StatelessWidget {
                       //   color: Color.fromARGB(255, 160, 160, 160),
                       // ),
                     ),
+                    controller: _usernameController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Veuillez entrer votre adresse mail';
+                      }
+                      return null;
+                    },
+
+
                   ),
                   const SizedBox(height: 20,),
-                  TextField(
+                  TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Mot de passe',
                       labelStyle: GoogleFonts.nunito(
@@ -77,12 +105,17 @@ class ConnexionPage extends StatelessWidget {
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
-                      // prefixIcon: const Icon(
-                      //   FontAwesomeIcons.lock,
-                      //   color: Color.fromARGB(255, 160, 160, 160),
-                      // ),
-                      
+                                           
                     ),
+                     obscureText: true,
+                        controller: _passwordController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Veuillez entrer votre mot de passe';
+                          }
+                          return null;
+                        },
+
                   ),
                   //bouton radio pour se souvenir de moi
                   Row(
@@ -166,7 +199,7 @@ class ConnexionPage extends StatelessWidget {
                      onTap: () {
                       Navigator.push(
                          context,
-                         MaterialPageRoute(builder: (context) => InscriptionPage()),
+                         MaterialPageRoute(builder: (context) => LoginPage()),
                          );
                                },
                       child: Text(
@@ -193,5 +226,58 @@ class ConnexionPage extends StatelessWidget {
     );
   }
   
-  void setState(Null Function() param0) {}
+  // void setState(Null Function() param0) {}
+
+
+
+
+
+
+
+
+
+  Future<void> _submit() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      final username = _usernameController.text.trim();
+      final password = _passwordController.text.trim();
+
+      // URL du service web d'authentification RESTful
+      final url = Uri.parse('https://mon-service-web.com/authenticate');
+
+      final response = await http.post(
+        url,
+        body: json.encode({'username': username, 'password': password}),
+        headers: {'Content-Type': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        // L'authentification est réussie
+        // Naviguer vers la page d'accueil de l'application
+      } else {
+        // L'authentification a échoué
+        final error = json.decode(response.body)['error'];
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Erreur d\'authentification'),
+            content: Text(error),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
 }

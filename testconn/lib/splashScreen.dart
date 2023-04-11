@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testconn/inscription_page.dart';
 import 'AnimFondu.dart';
 import 'ConnexionPage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +10,7 @@ class WelcomePage extends StatelessWidget {
     Future.delayed(Duration(seconds: 2), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ConnexionPage()),
+        MaterialPageRoute(builder: (context) => InscriptionPage()),
       );
     });
 
