@@ -4,35 +4,40 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'inscription_page.dart';
 import 'connex_page.dart';
 import 'dart:convert';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
+ 
   @override
   // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
-
 class _LoginPageState extends State<LoginPage> {
- final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
   bool _isLoading = false;
-
-
   bool _rememberMe = false;
-  
   get http => null;
+      Future<void> _handleGoogleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+      // Handle the sign in process and navigate to the next screen.
+    } catch (error) {
+      // Handle sign in error (e.g., display an error message).
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-
           Positioned(
             top: 0,
             left: 0,
             right: 0,
-
             child: Image.asset(
               'images/Up.png',
               fit: BoxFit.fitWidth,
@@ -59,7 +64,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               child: Column(
-                
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -71,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  
+
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Adresse mail',
@@ -79,7 +83,6 @@ class _LoginPageState extends State<LoginPage> {
                         color: const Color.fromARGB(195, 184, 184, 184),
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
-                        
                       ),
                       // prefixIcon: const Icon(
                       //   FontAwesomeIcons.envelope,
@@ -93,10 +96,10 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       return null;
                     },
-
-
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Mot de passe',
@@ -105,17 +108,15 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),
-                                           
                     ),
-                     obscureText: true,
-                        controller: _passwordController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Veuillez entrer votre mot de passe';
-                          }
-                          return null;
-                        },
-
+                    obscureText: true,
+                    controller: _passwordController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Veuillez entrer votre mot de passe';
+                      }
+                      return null;
+                    },
                   ),
                   //bouton radio pour se souvenir de moi
                   Row(
@@ -150,16 +151,18 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
-                      GoogleBtn1(onPressed:(){}),
+                    children: [
+                      GoogleBtn1(onPressed: _handleGoogleSignIn),
                       // Icon(
                       //   FontAwesomeIcons.google,
                       //   color: Color.fromARGB(255, 34, 87, 104),
                       // ),
-                      FacebookBtn1(onPressed:(){}),
-                      TwitterBtn1(onPressed: () {  },),
+                      FacebookBtn1(onPressed: () {}),
+                      TwitterBtn1(
+                        onPressed: () {},
+                      ),
                       SizedBox(width: 10),
-                      
+
                       // Icon(
                       //   FontAwesomeIcons.facebook,
                       //   color: Color.fromARGB(255, 34, 87, 104),
@@ -167,60 +170,55 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
-                 const SizedBox(height: 40),
-Row(
-  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  children: [
-    Text(
-      'Se connecter',
-      style: GoogleFonts.nunito(
-        color: const Color.fromARGB(255, 34, 87, 104),
-        fontSize: 24,
-        fontWeight: FontWeight.w900,
-      ),
-    ),
-    const SizedBox(width: 10),
-    InkWell(
-      onTap: _submit,
-      child: Container(
-        width: 60,
-        height: 60,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 34, 87, 104),
-          shape: BoxShape.circle,
-        ),
-        child: const Icon(
-          FontAwesomeIcons.arrowRight,
-          color: Colors.white,
-        ),
-      ),
-    ),
-  ],
-),
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Se connecter',
+                        style: GoogleFonts.nunito(
+                          color: const Color.fromARGB(255, 34, 87, 104),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      InkWell(
+                        onTap: _submit,
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 34, 87, 104),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            FontAwesomeIcons.arrowRight,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
 
                   //text "s'inscrire" ->lien vers la page d'inscription
                   GestureDetector(
-                     onTap: () {
+                    onTap: () {
                       Navigator.push(
-                         context,
-                         MaterialPageRoute(builder: (context) => InscriptionPage()),
-                         );
-                               },
-                      child: Text(
-                        "S'inscrire",
-                        style: GoogleFonts.nunito(
-                          color: const Color.fromARGB(255, 34, 87, 104),
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-
-
-
-
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => InscriptionPage()),
+                      );
+                    },
+                    child: Text(
+                      "S'inscrire",
+                      style: GoogleFonts.nunito(
+                        color: const Color.fromARGB(255, 34, 87, 104),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
                       ),
+                    ),
                   ),
-                
-
                 ],
               ),
             ),
@@ -229,16 +227,8 @@ Row(
       ),
     );
   }
-  
+
   // void setState(Null Function() param0) {}
-
-
-
-
-
-
-
-
 
   Future<void> _submit() async {
     if (_formKey.currentState!.validate()) {
@@ -285,10 +275,11 @@ Row(
     }
   }
 }
+
 class FacebookBtn1 extends StatelessWidget {
-final Function() onPressed;
+  final Function() onPressed;
   const FacebookBtn1({
-required this.onPressed,
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
@@ -303,8 +294,8 @@ required this.onPressed,
         ),
         child: TextButton(
           style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
-          ),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -324,10 +315,14 @@ required this.onPressed,
   }
 }
 
+Future<void> _submit() async {
+  // ...
+}
+
 class GoogleBtn1 extends StatelessWidget {
-final Function() onPressed;
+  final Function() onPressed;
   const GoogleBtn1({
-required this.onPressed,
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
@@ -342,8 +337,8 @@ required this.onPressed,
         ),
         child: TextButton(
           style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
-          ),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -362,6 +357,7 @@ required this.onPressed,
         ));
   }
 }
+
 class TwitterBtn1 extends StatelessWidget {
   final Function() onPressed;
   const TwitterBtn1({
@@ -380,8 +376,8 @@ class TwitterBtn1 extends StatelessWidget {
         ),
         child: TextButton(
           style: ButtonStyle(
-            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)))
-          ),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15)))),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
