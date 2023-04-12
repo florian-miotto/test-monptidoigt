@@ -150,7 +150,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   const SizedBox(height: 10),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GoogleBtn1(onPressed: _handleGoogleSignIn),
                       // Icon(
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                       TwitterBtn1(
                         onPressed: () {},
                       ),
-                      SizedBox(width: 10),
+                      SizedBox(width: 1),
 
                       // Icon(
                       //   FontAwesomeIcons.facebook,
@@ -287,10 +287,10 @@ class FacebookBtn1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 54,
-        margin: const EdgeInsets.all(15),
+        margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Colors.white,
+          color: Color.fromARGB(255, 197, 197, 197),
         ),
         child: TextButton(
           style: ButtonStyle(
@@ -330,7 +330,7 @@ class GoogleBtn1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 54,
-        margin: const EdgeInsets.all(15),
+        margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
@@ -344,10 +344,10 @@ class GoogleBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/crypto%2Fsearch%20(2).png?alt=media&token=24a918f7-3564-4290-b7e4-08ff54b3c94c",
-                width: 30,
+                width: 20,
               ),
               const SizedBox(
-                width: 15,
+                width: 10,
               ),
               const Text("Google",
                   style: TextStyle(color: Colors.black, fontSize: 16)),
@@ -369,9 +369,9 @@ class TwitterBtn1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 54,
-        margin: const EdgeInsets.all(15),
+        margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
         child: TextButton(
@@ -383,10 +383,10 @@ class TwitterBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/socials%2Ftwitter.png?alt=media&token=abd55874-2c77-4322-88e0-aa7598ee2a10",
-                width: 30,
+                width: 20,
               ),
               const SizedBox(
-                width: 15,
+                width: 10,
               ),
               const Text("Twitter",
                   style: TextStyle(color: Colors.black, fontSize: 16)),
