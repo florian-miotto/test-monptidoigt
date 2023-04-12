@@ -17,11 +17,13 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.symmetric(
-            vertical: 60,
-            horizontal: 20,
+          margin: const EdgeInsets.symmetric(
+            vertical: 160,
+            // horizontal: 20,
           ),
           child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+
             children: [
               AnimFondu(
                 delay: 500,

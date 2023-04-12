@@ -163,43 +163,43 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
-                  const SizedBox(height: 40),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Se connecter',
-                        style: GoogleFonts.nunito(
-                          color: const Color.fromARGB(255, 34, 87, 104),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w900,
-                        
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Container(
-                        width: 60,
-                        height: 60,
-                        
-                        decoration: BoxDecoration(
-                          
-                        color: const Color.fromARGB(255, 34, 87, 104),
-                        shape: BoxShape.circle,                        ),
-                        child: const Icon(
-                          FontAwesomeIcons.arrowRight,
-                          color: Colors.white,
-                          
-                        ),
-                      ),
+                 const SizedBox(height: 40),
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  children: [
+    Text(
+      'Se connecter',
+      style: GoogleFonts.nunito(
+        color: const Color.fromARGB(255, 34, 87, 104),
+        fontSize: 24,
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    const SizedBox(width: 10),
+    InkWell(
+      onTap: _submit,
+      child: Container(
+        width: 60,
+        height: 60,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 34, 87, 104),
+          shape: BoxShape.circle,
+        ),
+        child: const Icon(
+          FontAwesomeIcons.arrowRight,
+          color: Colors.white,
+        ),
+      ),
+    ),
+  ],
+),
 
-                    ],
-                  ),
                   //text "s'inscrire" ->lien vers la page d'inscription
                   GestureDetector(
                      onTap: () {
                       Navigator.push(
                          context,
-                         MaterialPageRoute(builder: (context) => LoginPage()),
+                         MaterialPageRoute(builder: (context) => InscriptionPage()),
                          );
                                },
                       child: Text(
