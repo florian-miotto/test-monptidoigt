@@ -4,7 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'ConnexionPage.dart';
 
 class InscriptionPage extends StatelessWidget {
-
+  final _usernameController = TextEditingController();
+final _nameController = TextEditingController();
   bool _rememberMe = false;
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class InscriptionPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextField(
+                  TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Prénom',
                       labelStyle: GoogleFonts.nunito(
@@ -64,6 +65,14 @@ class InscriptionPage extends StatelessWidget {
                       ),
                       
                     ),
+                    controller: _usernameController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Veuillez entrer votre Prénom';
+                      }
+                      return null;
+                    },
+
                   ),
                   const SizedBox(height: 20),
                   TextField(
@@ -76,6 +85,16 @@ class InscriptionPage extends StatelessWidget {
                       ),
                       
                     ),
+                    controller:  _nameController,
+
+                    // validator: (value) {
+                    //   if (value!.isEmpty) {
+                    //     return 'Veuillez entrer votre Nom';
+                    //   }
+                    //   return null;
+                    // },
+
+
                   ),
                   const SizedBox(height: 20),
                   TextField(

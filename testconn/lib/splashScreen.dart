@@ -15,28 +15,28 @@ class WelcomePage extends StatelessWidget {
     });
 
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Center(
+      child: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(
-            vertical: 160,
-            // horizontal: 20,
+            
           ),
           child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-
             children: [
               AnimFondu(
-                delay: 500,
+                delay: 100,
                 child: Container(
                   height: 200,
                   child: Image.asset('images/logo.png'),
                 ),
               ),
-                            
+                           
             ],
+
           ),
         ),
       ),
+    ),
     );
   }
 }

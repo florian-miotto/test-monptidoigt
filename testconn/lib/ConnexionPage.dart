@@ -344,10 +344,10 @@ class GoogleBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/crypto%2Fsearch%20(2).png?alt=media&token=24a918f7-3564-4290-b7e4-08ff54b3c94c",
-                width: 20,
+                width: 30,
               ),
               const SizedBox(
-                width: 10,
+                width: 15,
               ),
               const Text("Google",
                   style: TextStyle(color: Colors.black, fontSize: 16)),
@@ -383,10 +383,10 @@ class TwitterBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/socials%2Ftwitter.png?alt=media&token=abd55874-2c77-4322-88e0-aa7598ee2a10",
-                width: 20,
+                width: 30,
               ),
               const SizedBox(
-                width: 10,
+                width: 15,
               ),
               const Text("Twitter",
                   style: TextStyle(color: Colors.black, fontSize: 16)),
