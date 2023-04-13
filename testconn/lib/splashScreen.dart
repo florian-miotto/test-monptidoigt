@@ -25,7 +25,9 @@ class WelcomePage extends StatelessWidget {
             children: [
               AnimFondu(
                 delay: 100,
+                direction: AnimationDirection.topToBottom,
                 child: Container(
+                  
                   height: 200,
                   child: Image.asset('images/logo.png'),
                 ),

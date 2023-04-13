@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'inscription_page.dart';
-import 'connex_page.dart';
 import 'dart:convert';
+import 'AnimFondu.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
@@ -43,11 +44,14 @@ class _LoginPageState extends State<LoginPage> {
               fit: BoxFit.fitWidth,
             ),
           ),
+       
           Positioned(
             top: MediaQuery.of(context).size.height / 3,
             left: 0,
             right: 0,
+            
             child: Container(
+              
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                 color: Color(0xFFF8FFF7),
@@ -140,6 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   const SizedBox(height: 20),
+                   
                   Text(
                     'Se connecter avec',
                     style: GoogleFonts.nunito(
@@ -149,6 +154,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 10),
+                  AnimFondu(
+                delay: 100,
+                direction: AnimationDirection.bottomToTop,
+                child:
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -168,6 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                       //   color: Color.fromARGB(255, 34, 87, 104),
                       // ),
                     ],
+                  ),
                   ),
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
                   const SizedBox(height: 40),
@@ -220,9 +230,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                 ],
-              ),
+              
             ),
           ),
+        ),
         ],
       ),
     );
@@ -389,7 +400,7 @@ class TwitterBtn1 extends StatelessWidget {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              offset: Offset(0, -5),
+              offset: Offset(0, -2),
               blurRadius: 10,
               color: Color.fromRGBO(0, 0, 0, 0.1),
             ),
