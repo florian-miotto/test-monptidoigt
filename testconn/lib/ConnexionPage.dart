@@ -290,7 +290,14 @@ class FacebookBtn1 extends StatelessWidget {
         margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: Color.fromARGB(255, 197, 197, 197),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -5),
+              blurRadius: 10,
+              color: Color.fromRGBO(0, 0, 0, 0.1),
+            ),
+          ],
         ),
         child: TextButton(
           style: ButtonStyle(
@@ -334,6 +341,13 @@ class GoogleBtn1 extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -5),
+              blurRadius: 10,
+              color: Color.fromRGBO(0, 0, 0, 0.1),
+            ),
+          ],
         ),
         child: TextButton(
           style: ButtonStyle(
@@ -373,6 +387,13 @@ class TwitterBtn1 extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, -5),
+              blurRadius: 10,
+              color: Color.fromRGBO(0, 0, 0, 0.1),
+            ),
+          ],
         ),
         child: TextButton(
           style: ButtonStyle(
