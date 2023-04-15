@@ -54,7 +54,7 @@ final _nameController = TextEditingController();
                       fontWeight: FontWeight.w900,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: InputDecoration(
                       labelText: 'Prénom',
@@ -74,7 +74,7 @@ final _nameController = TextEditingController();
                     },
 
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Nom',
@@ -96,7 +96,7 @@ final _nameController = TextEditingController();
 
 
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Adresse mail',
@@ -108,7 +108,7 @@ final _nameController = TextEditingController();
                       
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Mot de passe',
@@ -123,7 +123,7 @@ final _nameController = TextEditingController();
                   
                   
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 60),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

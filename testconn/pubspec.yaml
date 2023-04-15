@@ -31,6 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: ^6.1.0
+  sign_in_with_apple: ^4.3.0
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   font_awesome_flutter: ^10.4.0

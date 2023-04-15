@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'inscription_page.dart';
+import 'accueil_page.dart';
 import 'dart:convert';
 import 'AnimFondu.dart';
 
@@ -78,82 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                       fontWeight: FontWeight.w900,
                     ),
                   ),
-                  const SizedBox(height: 20),
-
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Adresse mail',
-                      labelStyle: GoogleFonts.nunito(
-                        color: const Color.fromARGB(195, 184, 184, 184),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                      // prefixIcon: const Icon(
-                      //   FontAwesomeIcons.envelope,
-                      //   color: Color.fromARGB(255, 160, 160, 160),
-                      // ),
-                    ),
-                    controller: _usernameController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Veuillez entrer votre adresse mail';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      labelText: 'Mot de passe',
-                      labelStyle: GoogleFonts.nunito(
-                        color: const Color.fromARGB(195, 184, 184, 184),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    obscureText: true,
-                    controller: _passwordController,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Veuillez entrer votre mot de passe';
-                      }
-                      return null;
-                    },
-                  ),
-                  //bouton radio pour se souvenir de moi
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: _rememberMe,
-                        onChanged: (value) {
-                          setState(() {
-                            _rememberMe = value!;
-                          });
-                        },
-                      ),
-                      Text(
-                        'Se souvenir de moi',
-                        style: GoogleFonts.nunito(
-                          color: const Color.fromARGB(255, 34, 87, 104),
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                   
-                  Text(
-                    'Se connecter avec',
-                    style: GoogleFonts.nunito(
-                      color: const Color.fromARGB(255, 34, 87, 104),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 15),
                   AnimFondu(
                 delay: 100,
                 direction: AnimationDirection.bottomToTop,
@@ -179,6 +105,112 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                   ),
+                   const SizedBox(
+                    height: 15,
+                  ),
+                   GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AccueilPage()),
+                      );
+                    },
+
+
+                    child: Text(
+                      "Se connecter en tant qu'invité",
+                      style: GoogleFonts.nunito(
+                        color: const Color.fromARGB(255, 34, 87, 104),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+
+
+
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Adresse mail',
+                      labelStyle: GoogleFonts.nunito(
+                        color: const Color.fromARGB(195, 184, 184, 184),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      // prefixIcon: const Icon(
+                      //   FontAwesomeIcons.envelope,
+                      //   color: Color.fromARGB(255, 160, 160, 160),
+                      // ),
+                    ),
+                    controller: _usernameController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Veuillez entrer votre adresse mail';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Mot de passe',
+                      labelStyle: GoogleFonts.nunito(
+                        color: const Color.fromARGB(195, 184, 184, 184),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    obscureText: true,
+                    controller: _passwordController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Veuillez entrer votre mot de passe';
+                      }
+                      return null;
+                    },
+                  ),
+                    const SizedBox(
+                    height: 15,
+                  ),
+                  //bouton radio pour se souvenir de moi
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _rememberMe,
+                        onChanged: (value) {
+                          setState(() {
+                            _rememberMe = value!;
+                          });
+                        },
+                      ),
+                      Text(
+                        'Se souvenir de moi',
+                        style: GoogleFonts.nunito(
+                          color: const Color.fromARGB(255, 34, 87, 104),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
+                   
+                  // Text(
+                  //   'Se connecter avec',
+                  //   style: GoogleFonts.nunito(
+                  //     color: const Color.fromARGB(255, 34, 87, 104),
+                  //     fontSize: 14,
+                  //     fontWeight: FontWeight.w700,
+                  //   ),
+                  // ),
+                
+
+
+
                   //text "Se connecter" + bouton de connexion (rond avec fleche vers la droite)
                   const SizedBox(height: 40),
                   Row(
