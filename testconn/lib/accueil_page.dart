@@ -68,16 +68,26 @@ class _FadeAppBarTutorialState extends State<FadeAppBarTutorial> {
           child: Stack(
             children: [
               CustomScrollView(
-                controller: _scrollController,
-                slivers: [
-                  SliverToBoxAdapter(
-                      child: Container(
-                    height: MediaQuery.of(context).size.height * 1.5,
-                    child: Center(
-                        ),
-                  ))
-                ],
-              ),
+                //------------------------------------------------------------------- >> test de contenu scrollable
+  controller: _scrollController,
+  slivers: [
+    SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Container(
+            alignment: Alignment.center,
+            margin: EdgeInsets.all(8),
+            height: 100,
+            color: Color.fromARGB(255, 89, 183, 233),
+            child: Text('Élément $index'),
+          );
+        },
+        childCount: 50, 
+      ),
+    ),
+  ],
+),
+
               PreferredSize(
                   child: FadeAppBar(scrollOffset: _scrollControllerOffset),
                   preferredSize: Size(MediaQuery.of(context).size.width, 20.0))
@@ -101,7 +111,7 @@ class FadeAppBar extends StatelessWidget {
             vertical: 10.0,
             horizontal: 24.0,
           ),
-          color: Color.fromARGB(255, 180, 180, 180)
+          color: Color.fromARGB(255, 235, 253, 250)
               .withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
           child: SafeArea(child: SearchInput()),
         ));
@@ -119,25 +129,31 @@ class SearchInput extends StatelessWidget {
           BoxShadow(
               offset: const Offset(12, 26),
               blurRadius: 50,
-              spreadRadius: 0,
+              spreadRadius: 0.5,
               color: Colors.grey.withOpacity(.1)),
         ]),
         child: TextField(
+          
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 14),
           decoration: InputDecoration(
             // prefixIcon: Icon(Icons.email),
-            prefixIcon: Icon(Icons.search, size: 20, color: Color(0xffFF5A60)),
+            
+            suffixIcon: Icon(Icons.search, size: 30, color: Color.fromARGB(244, 9, 160, 115)),
             filled: true,
             fillColor: Colors.white,
             
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
             border: OutlineInputBorder(
+              //border color :
+
+              borderSide: BorderSide(color: Colors.white, width: 1.0),
+
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 1.0),
+              borderSide: BorderSide(color: Color.fromARGB(244, 9, 160, 115), width: 1.0),
               borderRadius: BorderRadius.all(Radius.circular(15.0)),
             ),
             focusedBorder: OutlineInputBorder(
@@ -208,7 +224,7 @@ class _TransparentBtmNavBarCurvedFb1State
         children: [
           CustomPaint(
             size: Size(size.width, height + 6),
-            painter: BottomNavCurvePainter(backgroundColor: backgroundColor),
+            painter: BottomNavCurvePainter(backgroundColor: Colors.white),
           ),
           Center(
             heightFactor: 0.1,
@@ -228,7 +244,7 @@ class _TransparentBtmNavBarCurvedFb1State
                   icon: Icons.home_outlined,
                   selected: true,
                   onPressed: () {},
-                  defaultColor: secondaryColor,
+                  defaultColor: Colors.black,
                   selectedColor: primaryColor,
                 ),
                 NavBarIcon(
@@ -236,7 +252,7 @@ class _TransparentBtmNavBarCurvedFb1State
                   icon: Icons.favorite_outline,
                   selected: false,
                   onPressed: () {},
-                  defaultColor: secondaryColor,
+                  defaultColor: Colors.black,
                   selectedColor: primaryColor,
                 ),
                 const SizedBox(width: 46),
@@ -245,7 +261,7 @@ class _TransparentBtmNavBarCurvedFb1State
                     icon: Icons.notifications_none_outlined,
                     selected: false,
                     onPressed: () {},
-                    defaultColor: secondaryColor,
+                    defaultColor: Colors.black,
                     selectedColor: primaryColor),
                 NavBarIcon(
                   text: "profil",
@@ -253,7 +269,7 @@ class _TransparentBtmNavBarCurvedFb1State
                   selected: false,
                   onPressed: () {},
                   selectedColor: primaryColor,
-                  defaultColor: secondaryColor,
+                  defaultColor: Colors.black,
                 )
               ],
             ),
@@ -267,7 +283,7 @@ class _TransparentBtmNavBarCurvedFb1State
 
 class BottomNavCurvePainter extends CustomPainter {
   BottomNavCurvePainter(
-      {this.backgroundColor = Colors.white, this.insetRadius = 38});
+      {this.backgroundColor =  Colors.white, this.insetRadius = 38});
 
   Color backgroundColor;
   double insetRadius;
@@ -314,8 +330,8 @@ class NavBarIcon extends StatelessWidget {
       required this.icon,
       required this.selected,
       required this.onPressed,
-      this.selectedColor = const Color(0x7827FFAC),
-      this.defaultColor = Colors.black54})
+      this.selectedColor = const Color.fromARGB(255, 34, 87, 104),
+      this.defaultColor = const Color.fromARGB(255, 0, 0, 0)})
       : super(key: key);
   final String text;
   final IconData icon;
@@ -332,7 +348,7 @@ class NavBarIcon extends StatelessWidget {
         IconButton(
           onPressed: onPressed,
           splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
+          highlightColor: Color.fromARGB(255, 0, 0, 0),
           icon: Icon(
             icon,
             size: 30,
