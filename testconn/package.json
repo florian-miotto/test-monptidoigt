@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "start": "^5.1.0"
+  },
+  "name": "testconn",
+  "description": "A new Flutter project.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

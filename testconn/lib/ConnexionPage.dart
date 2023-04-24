@@ -351,7 +351,7 @@ class FacebookBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/crypto%2Ffacebook%20(2).png?alt=media&token=9c275bf0-2bf7-498a-9405-9ae99df8d8f2",
-                width: 20,
+                width: 18,
               ),
               const SizedBox(
                 width: 10,
@@ -401,7 +401,7 @@ class GoogleBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/crypto%2Fsearch%20(2).png?alt=media&token=24a918f7-3564-4290-b7e4-08ff54b3c94c",
-                width: 20,
+                width: 18,
               ),
               const SizedBox(
                 width: 10,
@@ -447,7 +447,7 @@ class TwitterBtn1 extends StatelessWidget {
             children: [
               Image.network(
                 "https://firebasestorage.googleapis.com/v0/b/flutterbricks-public.appspot.com/o/socials%2Ftwitter.png?alt=media&token=abd55874-2c77-4322-88e0-aa7598ee2a10",
-                width: 20,
+                width: 18,
               ),
               const SizedBox(
                 width: 10,
