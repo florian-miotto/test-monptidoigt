@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter_files/index.dart';
+//import 'package:geolocator/geolocator.dart';
+void main() {
+  runApp(MaterialApp(home: AccueilPage()));
+}
+
 
 class AccueilPage extends StatefulWidget {
   static const String routeName = '/accueil';
@@ -14,7 +19,7 @@ class _AccueilPageState extends State<AccueilPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
+        children: const [
           Center(
           ),
           FadeAppBarTutorial(),
@@ -112,7 +117,7 @@ class FadeAppBar extends StatelessWidget {
             horizontal: 24.0,
           ),
           color: Color.fromARGB(255, 235, 253, 250)
-              .withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
+              .withOpacity((scrollOffset / 50).clamp(0, 1).toDouble()),
           child: SafeArea(child: SearchInput()),
         ));
   }
@@ -135,11 +140,11 @@ class SearchInput extends StatelessWidget {
         child: TextField(
           
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 14),
-          decoration: InputDecoration(
+          style: TextStyle(fontSize: 16),
+          decoration: const InputDecoration(
             // prefixIcon: Icon(Icons.email),
             
-            suffixIcon: Icon(Icons.search, size: 30, color: Color.fromARGB(244, 9, 160, 115)),
+            suffixIcon: Icon(Icons.search, size: 16, color: Color.fromARGB(244, 9, 160, 115)),
             filled: true,
             fillColor: Colors.white,
             
